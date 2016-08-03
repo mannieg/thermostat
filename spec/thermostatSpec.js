@@ -72,4 +72,37 @@ beforeEach(function(){
 
   });
 
+  describe('resetting the temeprature', function() {
+    it('sets the temperature back to 20', function() {
+      thermostat.reset();
+      expect(thermostat.currentTemperature()).toEqual(20);
+    });
+  });
+
+  describe('displaying usage levels', function() {
+    describe('when the temperature is below 18 degrees', function() {
+      it('has a status of "low-energy"', function(){
+        for (var i = 0; i < 3; i++) {
+          thermostat.down();
+        }
+        expect(thermostat.energyUsage()).toEqual("low-usage");
+      });
+    });
+    describe('when the temperature is between 18 and 25', function() {
+      it('has the status of "medium-usage', function() {
+        expect(thermostat.energyUsage()).toEqual("medium-usage");
+      });
+    });
+    describe('when the temperature is 25 or above', function() {
+      it('has the status of "high-usage"', function() {
+        for (var i = 0; i < 6; i++) {
+          thermostat.up();
+        }
+        expect(thermostat.energyUsage()).toEqual("high-usage");
+      });
+    });
+
+
+  });
+
 });
