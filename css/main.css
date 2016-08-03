@@ -1,0 +1,23 @@
+.page {
+  background-color: black;
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; /* Green */
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    color: black;
+
+}
+.head {
+  color: orange;
+  text-align: center;
+}

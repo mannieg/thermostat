@@ -34,6 +34,24 @@ describe("Thermostat", function() {
     expect(thermostat.temperature()).toEqual(thermostat.DEFAULT);
   })
 
+  describe("Colour change power usage", function() {
+    it("has low usage", function() {
+      for (var i = 18; i <= 20; i++) {
+        thermostat.decrease();
+      };
+      expect(thermostat.powerUsage()).toEqual("low")
+    });
+    it("has medium usage", function() {
+      expect(thermostat.powerUsage()).toEqual("medium")
+    });
+    it("has high usage", function() {
+      for (var i = 20; i < 26; i++) {
+        thermostat.increase();
+      };
+      expect(thermostat.powerUsage()).toEqual("high")
+    });
+  });
+
   describe("Power Saving Mode", function() {
     it("Power saving mode is on by default", function(){
       expect(thermostat.isPowerSavingModeOn()).toBeTruthy();
