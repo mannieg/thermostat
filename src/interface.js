@@ -31,8 +31,10 @@ $( document ).ready(function() {
 $('.onoffswitch-checkbox').change(function() {
   if($(this).is(":checked")) {
     $("#power-saving-status").text("On");
+    thermostat.switchPowerSavingModeOn();
   } else {
     $("#power-saving-status").text("Off")
+    thermostat.switchPowerSavingModeOff();
   }
 })
 
