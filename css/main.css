@@ -1,5 +1,5 @@
 .page {
-  background-color: black;
+  background-color: white;
 }
 .button {
     -webkit-transition-duration: 0.4s; /* Safari */
@@ -20,4 +20,10 @@
 .head {
   color: orange;
   text-align: center;
+}
+
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
 }
