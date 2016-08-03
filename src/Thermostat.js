@@ -18,14 +18,15 @@ Thermostat.prototype.temperature = function() {
 
 // input button
 Thermostat.prototype.increase = function() {
-  if (this.isMaxTemp === true) {
+  if (this.isMaxTemp() === true) {
     return;
   }
   this.currentTemp += this._INCREMENT;
 }
 // input button
 Thermostat.prototype.decrease = function() {
-  this.currentTemp -= this._INCREMENT;
+  if(this.currentTemp > this.MIN_TEMP)
+    this.currentTemp -= this._INCREMENT;
 };
 // input button
 Thermostat.prototype.reset = function() {
@@ -46,9 +47,9 @@ Thermostat.prototype.switchPowerSavingModeOff = function() {
 
 Thermostat.prototype.isMaxTemp = function() {
   if(this.isPowerSavingModeOn() === true) {
-    return this.temperature === this.PS_MAX_TEMP;
+    return this.temperature() === this.PS_MAX_TEMP;
   }
-  return this.temperature === this.MAX_TEMP;
+  return this.temperature() === this.MAX_TEMP;
 }
 // output (colour) default
 Thermostat.prototype.powerUsage = function() {

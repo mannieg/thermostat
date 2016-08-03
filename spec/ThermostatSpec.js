@@ -36,7 +36,7 @@ describe("Thermostat", function() {
 
   describe("Colour change power usage", function() {
     it("has low usage", function() {
-      for (var i = 18; i <= 20; i++) {
+      for (var i = 0; i <= 3; i++) {
         thermostat.decrease();
       };
       expect(thermostat.powerUsage()).toEqual("low")
@@ -63,7 +63,7 @@ describe("Thermostat", function() {
     });
 
     it("Max default temperature is 25", function() {
-      for (var i = 1; i <= 5; i++){
+      for (var i = 1; i <= 6; i++){
         thermostat.increase();
       }
       expect(thermostat.temperature()).toEqual(thermostat.PS_MAX_TEMP);
