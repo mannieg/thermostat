@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="src/jquery-3.1.0.min.js"></script>
   <link rel="stylesheet" href="css/main.css" charset="utf-8">
-  <h1 class="head">Thermostat</h1>
+  <title class="head">Thermostat</title>
 </head>
 <body>
   <div class="main">
@@ -15,6 +15,14 @@
     <button class="button"  id="reset_btn" >reset</button><br /><br />
     <button class="button"  id="power_save_on" >power saver!</button>
     <button class="button"  id="power_save_off" >power saver off</button><br /><br />
+    <div class="onoffswitch">
+      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+      <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+    <br />
     Power Saving Mode is <span id="power-saving-status">on</span>
   </div>
   <script type="text/javascript" src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>

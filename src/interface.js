@@ -28,6 +28,14 @@ $( document ).ready(function() {
   bar.animate(currentTemp);
 });
 
+$('.onoffswitch-checkbox').change(function() {
+  if($(this).is(":checked")) {
+    $("#power-saving-status").text("On");
+  } else {
+    $("#power-saving-status").text("Off")
+  }
+})
+
 var bar = new ProgressBar.Circle(container, {
   color: '#fff',
   // This has to be the same size as the maximum width to
@@ -35,7 +43,7 @@ var bar = new ProgressBar.Circle(container, {
   strokeWidth: 4,
   trailWidth: 1,
   easing: 'easeInOut',
-  duration: 1700,
+  duration: 1400,
   text: {
     autoStyleContainer: false
   },
