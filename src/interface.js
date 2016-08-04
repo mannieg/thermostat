@@ -9,6 +9,7 @@ $ (document).ready(function() {
 
   function update_temp(){
     $('#temperature').text(thermostat.currentTemperature());
+    $('#temperature').attr('class', thermostat.energyUsage());
   };
 
   $( "#temperature-down" ).click(function() {
@@ -30,7 +31,6 @@ $ (document).ready(function() {
     thermostat.switchPowerSavingModeOff();
     $('#power-saving-status').text('off');
   });
-
 
 
 });
