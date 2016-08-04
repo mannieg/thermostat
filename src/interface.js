@@ -3,29 +3,37 @@ var currentTemp;
 
 function getTempDecimal(){
   currentTemp = thermostat.temperature() / thermostat.MAX_TEMP;
+  bar.animate(currentTemp);
+  changeBackground();
+}
+
+function changeBackground(){
+  if (thermostat.powerUsage() == 'low-usage') {
+    $('.progressbar-text').css('color', '#9ACD32')
+  } else if (thermostat.powerUsage() == 'medium-usage') {
+    $('.progressbar-text').css('color', '#ffffff')
+  } else {
+    $('.progressbar-text').css('color', '#FF8C00');
+  }
 }
 
 $('#increase_btn').click(function() {
   thermostat.increase();
   getTempDecimal();
-  bar.animate(currentTemp);
 });
 
 $('#reset_btn').click(function() {
   thermostat.reset();
   getTempDecimal();
-  bar.animate(currentTemp);
 });
 
 $('#decrease_btn').click(function() {
   thermostat.decrease();
   getTempDecimal();
-  bar.animate(currentTemp);
 });
 
 $( document ).ready(function() {
   getTempDecimal();
-  bar.animate(currentTemp);
 });
 
 $('.onoffswitch-checkbox').change(function() {
@@ -38,19 +46,35 @@ $('.onoffswitch-checkbox').change(function() {
   }
 })
 
+$('form').on( "submit", function( event ) {
+  event.preventDefault();
+  getWeather( $( this ).serialize() );
+});
+
+function getWeather(q) {
+  var url = 'http://api.openweathermap.org/data/2.5/weather?';
+  var api = '&APPID=8e294e4884174ccaf295c1098548b598';
+  var units = '&units=metric';
+  $.get(url + q + api + units, function( data ) {
+    $('.location_temp').text('The temperature in ' + data.name + ' is ' +
+                              data.main.temp +
+                              String.fromCharCode(176) + 'C');
+  });
+}
+
 var bar = new ProgressBar.Circle(container, {
   color: '#fff',
   // This has to be the same size as the maximum width to
   // prevent clipping
-  strokeWidth: 4,
+  strokeWidth: 5,
   trailWidth: 1,
   easing: 'easeInOut',
   duration: 1400,
   text: {
     autoStyleContainer: false
   },
-  from: { color: '#f16621', width: 1 },
-  to: { color: '#b9401a', width: 4 },
+  from: { color: '#FF8C00', width: 1 },
+  to: { color: '#FFA500', width: 4 },
   // Set default step function for all animate calls
   step: function(state, circle) {
     circle.path.setAttribute('stroke', state.color);

@@ -54,12 +54,12 @@ Thermostat.prototype.isMaxTemp = function() {
 // output (colour) default
 Thermostat.prototype.powerUsage = function() {
   if (this.currentTemp < this.LOW_USAGE) {
-    return "low";
+    return "low-usage";
   }
   else if (this.currentTemp < this.MEDIUM_USAGE){
-    return "medium";
+    return "medium-usage";
   }
   else {
-    return "high";
+    return "high-usage";
   }
 }

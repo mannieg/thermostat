@@ -1,7 +1,7 @@
 .page {
-  background: #1e3c72; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #1e3c72 , #2a5298); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #1e3c72 , #2a5298); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #485563;
+  background: -webkit-linear-gradient(to left, #485563 , #29323c);
+  background: linear-gradient(to left, #485563 , #29323c);
 }
 .head {
   color: #ffffff;
@@ -16,10 +16,10 @@
   font-family: Raleway, Helvetica, sans-serif;
 }
 
-.button {
-    background-color: #35a9a0; /* Green */
-    border: none;
-    border-radius: 4px;
+.button, input[type=submit] {
+    background-color: #34c140;
+    border-radius: 11px;
+    border-color: #000;
     color: white;
     padding: 10px 32px;
     text-align: center;
@@ -27,10 +27,11 @@
     display: inline-block;
     font-size: 12px;
     outline: none;
+    cursor: pointer;
 }
 
 #decrease_btn, #reset_btn, #power_save_off {
-  background-color: #cc3c31;
+  background-color: #ad1e13;
 }
 
 #container {
@@ -51,7 +52,7 @@
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 2px solid #000000; border-radius: 20px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -65,7 +66,7 @@
 .onoffswitch-inner:before {
     content: "ON";
     padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background-color: #34c140; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "OFF";
@@ -86,4 +87,54 @@
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
+}
+
+.high-usage {
+  background: #c21500;
+  background: -webkit-linear-gradient(to left, #c21500 , #ffc500);
+  background: linear-gradient(to left, #c21500 , #ffc500);
+}
+
+.low-usage {
+  background: #56ab2f;
+  background: -webkit-linear-gradient(to left, #56ab2f , #a8e063);
+  background: linear-gradient(to left, #56ab2f , #a8e063);
+}
+
+.medium-usage {
+  background: #485563;
+  background: -webkit-linear-gradient(to left, #485563 , #29323c);
+  background: linear-gradient(to left, #485563 , #29323c);
+}
+
+input[type=text] {
+    width: auto;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: auto;
+}
+
+input[type=submit] {
+  background-color: #34c140;
+  font-size: 17px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
 }
