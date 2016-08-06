@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
-<html class="page">
+<html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="src/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="src/Progressbar.js"></script>
   <link rel="stylesheet" href="css/main.css" charset="utf-8">
   <title class="head">Thermostat</title>
@@ -14,7 +13,7 @@
     <div class="location_temp"></div>
     <br />
     <form class="custom_location_form">
-      <input type="text" name="q" autocomplete="off" placeholder="Enter your city">
+      <input type="text" id="city_input" name="q" autocomplete="off" placeholder="Enter your city">
       <input type="submit" value="Search">
     </form>
     <br />
@@ -32,6 +31,7 @@
     Power Saving Mode is <span id="power-saving-status">on</span>
   </div>
   <script type="text/javascript" src="src/Thermostat.js"></script>
-  <script type="text/javascript" src="src/interface.js"></script>
+  <script type="text/javascript" src="js/interface.js"></script>
+  <script type="text/javascript" src="js/circle.js"></script>
 </body>
 </html>

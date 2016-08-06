@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function Thermostat() {
   this.DEFAULT = 20;
@@ -11,47 +11,47 @@ function Thermostat() {
   this._INCREMENT = 1;
   this._powerSavingMode = true;
 }
-// output default
+
 Thermostat.prototype.temperature = function() {
   return this.currentTemp;
 };
 
-// input button
 Thermostat.prototype.increase = function() {
   if (this.isMaxTemp() === true) {
     return;
   }
   this.currentTemp += this._INCREMENT;
-}
-// input button
-Thermostat.prototype.decrease = function() {
-  if(this.currentTemp > this.MIN_TEMP)
-    this.currentTemp -= this._INCREMENT;
 };
-// input button
+
+Thermostat.prototype.decrease = function() {
+  if(this.currentTemp > this.MIN_TEMP){
+    this.currentTemp -= this._INCREMENT;
+  }
+};
+
 Thermostat.prototype.reset = function() {
   this.currentTemp = this.DEFAULT;
-}
-// output default
+};
+
 Thermostat.prototype.isPowerSavingModeOn = function() {
   return this._powerSavingMode === true;
-}
-// input button
+};
+
 Thermostat.prototype.switchPowerSavingModeOn = function() {
   this._powerSavingMode = true;
-}
-// input button
+};
+
 Thermostat.prototype.switchPowerSavingModeOff = function() {
   this._powerSavingMode = false;
-}
+};
 
 Thermostat.prototype.isMaxTemp = function() {
   if(this.isPowerSavingModeOn() === true) {
     return this.temperature() === this.PS_MAX_TEMP;
   }
   return this.temperature() === this.MAX_TEMP;
-}
-// output (colour) default
+};
+
 Thermostat.prototype.powerUsage = function() {
   if (this.currentTemp < this.LOW_USAGE) {
     return "low-usage";
@@ -62,4 +62,4 @@ Thermostat.prototype.powerUsage = function() {
   else {
     return "high-usage";
   }
-}
+};
